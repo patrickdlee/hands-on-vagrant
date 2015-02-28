@@ -5,12 +5,21 @@ VAGRANTFILE_API_VERSION = "2"
 # change this to your code directory
 CODE_DIR = "~/code"
 
+# if your machine is 32-bit, just change trusty64 to trusty32
+BASE_BOX = "ubuntu/trusty64"
+
+# 512MB is a reasonable amount of memory for this, but feel free to adjust
+RAM = "512"
+
+# feel free to increase the number of virtual CPUs
+CPUS = "1"
+
 nodes = [ {
     :hostname => "hands-on",
     :ip => "192.168.0.42",
-    :box => "ubuntu/trusty64",
-    :ram => 512,
-    :cpus => 2
+    :box => BASE_BOX,
+    :ram => RAM,
+    :cpus => CPUS
 } ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
